@@ -9,6 +9,8 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button button_create;
+    private Button button_lineup;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,12 +19,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         button_create = (Button)findViewById(R.id.button_create);
         button_create.setOnClickListener(this);
+
+        button_lineup = (Button)findViewById(R.id.button_lineup);
+        button_lineup.setOnClickListener(this);
+
     }
 
     public void onClick(View v){
-        if (v == button_create){
-            Intent intent = new Intent(this, MemberRegistration.class);
+
+        Intent intent;
+
+        if (v.getId() == R.id.button_create){
+            intent = new Intent(this, MemberRegistration.class);
             startActivityForResult(intent, 0);
+        }else if(v.getId() == R.id.button_lineup){
+            intent = new Intent(this, OrderRegistration.class);
+            startActivityForResult(intent, 1);
         }
     }
 }
