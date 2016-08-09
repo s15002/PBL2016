@@ -26,7 +26,7 @@
 
         <TextView
             android:id="@+id/text_question"
-            android:text="以下の商品を削除しますか？"
+            android:text="以下の商品をキャンセルしますか？"
             android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
