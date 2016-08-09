@@ -9,8 +9,111 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.harapekoyuki.application.MainActivity">
 
-    <TextView
+
+    <Button
+        android:id="@+id/button_create"
+        android:text="会員登録"
+        android:layout_width= "wrap_content"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/button_lineup"
+        android:text="商品一覧"
+        android:layout_below="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        />
+
+    <Button
+        android:id="@+id/button_orderStatus"
+        android:text="注文状況"
+        android:layout_below="@+id/view2"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        />
+
+    <Button
+        android:id="@+id/button_member_Change"
+        android:text="会員変更"
+        android:layout_below="@+id/view3"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"/>
+
+    <Button
+        android:id="@+id/button_member_Delete"
+        android:text="会員退会"
+        android:layout_below="@+id/view4"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        />
+
+    <View
+        android:id="@+id/view"
+        android:layout_below="@+id/button_create"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray"
+        />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_below="@+id/button_lineup"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray"
+        />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_below="@+id/button_orderStatus"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray"
+        />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_below="@+id/button_member_Change"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray"
+        />
+
+    <View
+        android:id="@+id/bottom_line"
+        android:layout_below="@+id/button_member_Delete"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray"
+        />
+
+    <Button
+        android:id="@+id/button_login"
+        android:text="ログイン"
+        android:layout_below="@+id/bottom_line"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="30dp"/>
+
+
 </RelativeLayout>
