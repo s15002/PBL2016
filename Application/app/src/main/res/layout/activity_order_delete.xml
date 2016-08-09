@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_alignParentTop="true"
     android:layout_centerHorizontal="true"
-    tools:context=".OrderStatus">
+    tools:context=".OrderDelete">
 
     <LinearLayout
         android:orientation="vertical"
@@ -15,8 +15,8 @@
         android:layout_gravity="center_horizontal">
 
         <TextView
-            android:id="@+id/text_order"
-            android:text="注文状況"
+            android:id="@+id/text_cancel"
+            android:text="注文キャンセル画面"
             android:textSize="30sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,8 +25,8 @@
             />
 
         <TextView
-            android:id="@+id/text_content"
-            android:text="注文内容"
+            android:id="@+id/text_question"
+            android:text="以下の商品を削除しますか？"
             android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,7 +46,6 @@
             android:id="@+id/order_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             />
     </LinearLayout>
 
@@ -58,24 +57,23 @@
 
 
         <Button
-            android:id="@+id/button_cancel"
-            android:text="注文をキャンセルする"
-            android:layout_width="250dp"
+            android:id="@+id/button_yes"
+            android:text="はい"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             />
 
         <Button
-            android:id="@+id/button_change"
-            android:text="注文を変更する"
-            android:layout_width="250dp"
+            android:id="@+id/button_no"
+            android:text="いいえ"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             />
 
     </LinearLayout>
-
 
 </LinearLayout>

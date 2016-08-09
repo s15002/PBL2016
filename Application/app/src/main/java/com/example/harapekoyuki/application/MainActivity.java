@@ -10,6 +10,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button button_create;
     private Button button_lineup;
+    private Button button_orderStatus;
 
 
     @Override
@@ -23,6 +24,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button_lineup = (Button)findViewById(R.id.button_lineup);
         button_lineup.setOnClickListener(this);
 
+        button_orderStatus = (Button)findViewById(R.id.button_orderStatus);
+        button_orderStatus.setOnClickListener(this);
+
     }
 
     public void onClick(View v){
@@ -35,6 +39,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }else if(v.getId() == R.id.button_lineup){
             intent = new Intent(this, OrderRegistration.class);
             startActivityForResult(intent, 1);
+        }else if(v.getId() == R.id.button_orderStatus){
+            intent = new Intent(this, OrderStatus.class);
+            startActivityForResult(intent, 2);
         }
     }
 }

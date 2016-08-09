@@ -6,17 +6,17 @@
     android:layout_height="match_parent"
     android:layout_alignParentTop="true"
     android:layout_centerHorizontal="true"
-    tools:context=".OrderStatus">
+    tools:context=".OrderChange">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="70dp"
         android:layout_gravity="center_horizontal">
 
         <TextView
-            android:id="@+id/text_order"
-            android:text="注文状況"
+            android:id="@+id/text_change"
+            android:text="注文変更"
             android:textSize="30sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,15 +24,6 @@
             android:layout_marginTop="10dp"
             />
 
-        <TextView
-            android:id="@+id/text_content"
-            android:text="注文内容"
-            android:textSize="20sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            />
     </LinearLayout>
 
     <LinearLayout
@@ -58,8 +49,8 @@
 
 
         <Button
-            android:id="@+id/button_cancel"
-            android:text="注文をキャンセルする"
+            android:id="@+id/button_change"
+            android:text="注文変更"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -67,8 +58,8 @@
             />
 
         <Button
-            android:id="@+id/button_change"
-            android:text="注文を変更する"
+            android:id="@+id/button_return"
+            android:text="戻る"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
