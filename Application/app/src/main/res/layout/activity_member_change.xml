@@ -11,7 +11,7 @@
 
     <TextView
         android:id="@+id/text_member"
-        android:text="会員登録画面"
+        android:text="会員変更画面"
         android:textSize="30sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
