@@ -152,32 +152,15 @@
         android:layout_marginLeft="20dp"
          />
 
-    <Spinner
-        android:id="@+id/spinner_year"
+    <DatePicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/datePicker"
+        android:datePickerMode="spinner"
+        android:calendarViewShown="false"
         android:layout_alignTop="@id/text_birthday"
-        android:layout_alignLeft="@id/radio_man"
         android:layout_toEndOf="@id/text_birthday"
-        />
-
-    <Spinner
-        android:id="@+id/spinner_month"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/spinner_year"
-        android:layout_toEndOf="@+id/spinner_year"
-        android:layout_marginLeft="30dp"
-        />
-
-    <Spinner
-        android:id="@+id/spinner_day"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/spinner_year"
-        android:layout_toEndOf="@id/spinner_month"
-        android:layout_marginLeft="30dp"
-        />
+        android:layout_marginLeft="10dp" />
 
     <Button
         android:id="@+id/button_cancel"
@@ -198,6 +181,8 @@
         android:layout_toEndOf="@id/button_cancel"
         android:layout_marginLeft="30dp"
         />
+
+
 
 
 </RelativeLayout>
