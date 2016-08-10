@@ -41,7 +41,7 @@
         />
 
     <Button
-        android:id="@+id/button_member_Change"
+        android:id="@+id/button_member_change"
         android:text="会員変更"
         android:layout_below="@+id/view3"
         android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
         android:layout_marginTop="5dp"/>
 
     <Button
-        android:id="@+id/button_member_Delete"
+        android:id="@+id/button_member_delete"
         android:text="会員退会"
         android:layout_below="@+id/view4"
         android:layout_width="wrap_content"
@@ -90,7 +90,7 @@
 
     <View
         android:id="@+id/view4"
-        android:layout_below="@+id/button_member_Change"
+        android:layout_below="@+id/button_member_change"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="5dp"
@@ -99,7 +99,7 @@
 
     <View
         android:id="@+id/bottom_line"
-        android:layout_below="@+id/button_member_Delete"
+        android:layout_below="@+id/button_member_delete"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="5dp"
