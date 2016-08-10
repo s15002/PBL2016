@@ -10,9 +10,8 @@ import android.widget.Button;
 //implements View.OnClickListener
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    /**ボタン変数をprivate宣言
-     private Button 変数名;
-    **/
+    private MyHelper myHelper;
+
     private Button button_create;
     private Button button_lineup;
     private Button button_orderStatus;
@@ -24,6 +23,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // MyHelperオブジェクトを作り、フィールドにセット
+        myHelper = new MyHelper(this);
+
 
         /**メニュー画面にあるボタンを取得している
          * 変数名 = (Button)findViewById(R.id.id名);
