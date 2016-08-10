@@ -22,7 +22,8 @@
         <activity android:name=".OrderChange" />
         <activity android:name=".OrderDelete" />
         <activity android:name=".MemberDelete" />
-        <activity android:name=".LoginScreen"></activity>
+        <activity android:name=".LoginScreen" />
+        <activity android:name=".Lineup"></activity>
     </application>
 
 </manifest>

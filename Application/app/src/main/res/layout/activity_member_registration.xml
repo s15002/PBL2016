@@ -180,7 +180,7 @@
         />
 
     <Button
-        android:id="@+id/button_registration"
+        android:id="@+id/button_cancel"
         android:text="キャンセル"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -194,8 +194,8 @@
         android:text="登録"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/button_registration"
-        android:layout_toEndOf="@id/button_registration"
+        android:layout_alignTop="@id/button_cancel"
+        android:layout_toEndOf="@id/button_cancel"
         android:layout_marginLeft="30dp"
         />
 
