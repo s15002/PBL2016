@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Application</string>
     <string name="name">Name</string>
+    <string name="text_login">ログイン</string>
+    <string name="text_memberId">会員ID</string>
+    <string name="text_password">パスワード</string>
 </resources>

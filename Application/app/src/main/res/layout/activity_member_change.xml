@@ -20,23 +20,12 @@
         />
 
     <TextView
-        android:id="@+id/text_id"
-        android:text="会員ID"
-        android:textSize="25sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/text_member"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp"
-        />
-
-    <TextView
         android:id="@+id/text_name"
         android:text="名前"
         android:textSize="25sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_id"
+        android:layout_below="@+id/text_member"
         android:layout_alignParentStart="true"
         android:layout_marginTop="25dp"
         />
@@ -73,15 +62,6 @@
         android:layout_below="@+id/text_gender"
         android:layout_alignParentStart="true"
         android:layout_marginTop="25dp"
-        />
-
-    <EditText
-        android:id="@+id/edit_id"
-        android:layout_width="240dp"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/text_id"
-        android:layout_toEndOf="@+id/text_id"
-        android:layout_marginStart="20dp"
         />
 
     <EditText
