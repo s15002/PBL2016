@@ -12,14 +12,14 @@ import android.util.Log;
 public class MyHelper extends SQLiteOpenHelper{
 
     //テーブルの作成
-    private static final String DB_NAME = "Test.db";
+    private static final String DB_NAME = "Member.db";
     private static final int DB_VERSION = 1;
     public static final String TABLE_NAME = "MemberMaster_db";
     private static final String SQL_CREATE_TABLE =
             "CREATE TABLE " + TABLE_NAME + "(" +
                     Columns._ID + " INTEGER primary key autoincrement," +
-                    Columns.SURNAME + " TEXT," +
-                    Columns.NAME + " TEXT," +
+                    Columns.LASTNAME + " TEXT," +
+                    Columns.FIRSTNAME + " TEXT," +
                     Columns.ADDRESS + " TEXT," +
                     Columns.GENDER + " TEXT," +
                     Columns.YEAR + " INTEGER," +
@@ -30,8 +30,8 @@ public class MyHelper extends SQLiteOpenHelper{
 
     //列の名前を宣言
     public interface Columns extends BaseColumns{
-        public static final String SURNAME = "Surname";
-        public static final String NAME = "Name";
+        public static final String LASTNAME = "Surname";
+        public static final String FIRSTNAME = "Name";
         public static final String ADDRESS = "Address";
         public static final String GENDER = "Gender";
         public static final String YEAR = "Year";
