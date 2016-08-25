@@ -175,25 +175,39 @@
 
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="60dp">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
 
-        <TextView
-            android:id="@+id/text_password"
-            android:text="パスワード"
-            android:textSize="25sp"
+                <TextView
+                    android:id="@+id/text_password"
+                    android:text="パスワード"
+                    android:textSize="25sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    />
+
+                <EditText
+                    android:id="@+id/edit_password"
+                    android:layout_width="229dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    />
+
+            </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/check_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:text="パスワードを表示する"
             />
 
-        <EditText
-            android:id="@+id/edit_password"
-            android:layout_width="229dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            />
 
     </LinearLayout>
 

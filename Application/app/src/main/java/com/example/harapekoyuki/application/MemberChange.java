@@ -266,7 +266,7 @@ public class MemberChange extends AppCompatActivity implements View.OnClickListe
         ContentValues values = new ContentValues();
 
         values.put(MyHelper.Columns.LASTNAME, item.LastName);
-        values.put(MyHelper.Columns.FIRSTNAME, item.LastName);
+        values.put(MyHelper.Columns.FIRSTNAME, item.FirstName);
         values.put(MyHelper.Columns.ADDRESS, item.Address);
         values.put(MyHelper.Columns.GENDER, item.Gender);
         values.put(MyHelper.Columns.PASSWORD, item.Password);

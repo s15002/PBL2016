@@ -39,6 +39,7 @@ public class Lineup extends AppCompatActivity implements View.OnClickListener {
         db = itemHelper.getWritableDatabase();
 
         // 画像読み込み
+        /**
         ByteArrayOutputStream product0 = getByteArrayOutputStream(String.valueOf(R.drawable.product_0));
         ByteArrayOutputStream product1 = getByteArrayOutputStream(String.valueOf(R.drawable.product_1));
         ByteArrayOutputStream product2 = getByteArrayOutputStream(String.valueOf(R.drawable.product_2));
@@ -48,6 +49,7 @@ public class Lineup extends AppCompatActivity implements View.OnClickListener {
         ByteArrayOutputStream product6 = getByteArrayOutputStream(String.valueOf(R.drawable.product_6));
         ByteArrayOutputStream product7 = getByteArrayOutputStream(String.valueOf(R.drawable.product_7));
         ByteArrayOutputStream product8 = getByteArrayOutputStream(String.valueOf(R.drawable.product_8));
+
 
 
         // レコード設定 ByteArrayOutputStreamをbyte[]に変換し格納
@@ -124,7 +126,9 @@ public class Lineup extends AppCompatActivity implements View.OnClickListener {
             iv.setImageBitmap(bmp);
             linear.addView(tv);
             linear.addView(iv);
+
         }
+
 
         // カーソルクローズ
         cursor.close();
@@ -147,7 +151,7 @@ public class Lineup extends AppCompatActivity implements View.OnClickListener {
             e.printStackTrace();
         }
 
-
+**/
     }
 
     public void onClick(View v) {
