@@ -26,97 +26,17 @@ public class MemberChange extends AppCompatActivity implements View.OnClickListe
 
     Intent intent;
 
-    //列のindex(位置)を取得する
-    int lastNameIndex;
-    int firstNameIndex;
-    int addressIndex;
-    int genderIndex;
-    int passwordIndex;
-    int memberIdIndex;
-
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_member_change);
-
-        myHelper = new MyHelper(this);
-
-        MemberItemStr item = new MemberItemStr();
-
-
-
-        //SQLiteDatabase取得
-        SQLiteDatabase db = myHelper.getWritableDatabase();
-
-        item.MemberId = "auau";
-
-        //queryを呼び、検索を行う
-        String where = MyHelper.Columns.MEMBERID + "=?";
-        String [] args = {item.MemberId};
-        Cursor cursor = db.query(
-                MyHelper.TABLE_NAME, null, where, args, null, null, null
-        );
-
-        if(!cursor.moveToFirst()){
-            cursor.close();
-            db.close();
-            err_msg += "ログインしていません";
-            Log.d("Index", "err_msg = " + err_msg);
-        } else {
-
-            //列のindex(位置)を取得する
-            lastNameIndex = cursor.getColumnIndex(MyHelper.Columns.LASTNAME);
-            firstNameIndex = cursor.getColumnIndex(MyHelper.Columns.FIRSTNAME);
-            addressIndex = cursor.getColumnIndex(MyHelper.Columns.ADDRESS);
-            genderIndex = cursor.getColumnIndex(MyHelper.Columns.GENDER);
-            passwordIndex = cursor.getColumnIndex(MyHelper.Columns.PASSWORD);
-            memberIdIndex = cursor.getColumnIndex(MyHelper.Columns.MEMBERID);
-
-            item.MemberId = cursor.getString(memberIdIndex);
-
-            err_msg += "ログインしています";
-            Log.d("Index", "err_msg = " + err_msg);
-        }
-
-        //行を読み込む
-        item.LastName = cursor.getString(lastNameIndex);
-        item.FirstName = cursor.getString(firstNameIndex);
-        item.Address = cursor.getString(addressIndex);
-        item.Password = cursor.getString(passwordIndex);
-        item.MemberId = cursor.getString(memberIdIndex);
-
-
-        EditText lastNameEdit = (EditText)findViewById(R.id.edit_lastName);
-        EditText firstNameEdit = (EditText)findViewById(R.id.edit_firstName);
-        EditText addressEdit = (EditText)findViewById(R.id.edit_address);
-        RadioGroup rg = (RadioGroup)findViewById(R.id.radio_gender);
-        EditText passwordEdit = (EditText)findViewById(R.id.edit_password);
-
-        Log.d("MemberChange", "LastName = "+ item.LastName );
-
-        lastNameEdit.setText(item.LastName);
-        firstNameEdit.setText(item.FirstName);
-        addressEdit.setText(item.Address);
-        passwordEdit.setText(item.Password);
-
-
-        cursor.close();
-        db.close();
-
-
-
-
-
-
-        button_cancel = (Button)findViewById(R.id.button_cancel);
-        button_cancel.setOnClickListener(this);
-
-        button_change = (Button)findViewById(R.id.button_change);
-        button_change.setOnClickListener(this);
+    //インスタンスクラス生成
+    private class MemberItemIndex{
+        int lastNameIndex;
+        int firstNameIndex;
+        int addressIndex;
+        int genderIndex;
+        int passwordIndex;
+        int memberIdIndex;
     }
 
-
+    //インスタンスクラス生成
     private class MemberItemStr{
         String LastName;
         String FirstName;
@@ -126,8 +46,93 @@ public class MemberChange extends AppCompatActivity implements View.OnClickListe
         String MemberId;
     }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_member_change);
+
+        //buttonObjectを取得し、Clickした時の処理をOnClickクラスに移動
+        button_cancel = (Button)findViewById(R.id.button_cancel);
+        button_cancel.setOnClickListener(this);
+
+        button_change = (Button)findViewById(R.id.button_change);
+        button_change.setOnClickListener(this);
+
+        //MemberItemIndexクラスを取得
+        MemberItemIndex index = new MemberItemIndex();
+
+        //MemberItemStrクラスを取得
+        MemberItemStr item = new MemberItemStr();
+
+        //MyHelperファイルを取得
+        myHelper = new MyHelper(this);
+
+        //SQLiteDatabase取得
+        SQLiteDatabase db = myHelper.getWritableDatabase();
+
+        //IDを指定
+        item.MemberId = "Hello";
+
+        //queryを呼び、検索を行う
+        String where = MyHelper.Columns.MEMBERID + "=?";
+        String [] args = {item.MemberId};
+        Cursor cursor = db.query(
+                MyHelper.TABLE_NAME, null, where, args, null, null, null
+        );
+
+        //指定したIDに引っかかったらif,引っかからなかったらelse
+        if(cursor.moveToFirst()){
+
+            //列のindex(位置)を取得する
+            index.lastNameIndex = cursor.getColumnIndex(MyHelper.Columns.LASTNAME);
+            index.firstNameIndex = cursor.getColumnIndex(MyHelper.Columns.FIRSTNAME);
+            index.addressIndex = cursor.getColumnIndex(MyHelper.Columns.ADDRESS);
+            index.genderIndex = cursor.getColumnIndex(MyHelper.Columns.GENDER);
+            index.passwordIndex = cursor.getColumnIndex(MyHelper.Columns.PASSWORD);
+            index.memberIdIndex = cursor.getColumnIndex(MyHelper.Columns.MEMBERID);
+
+            item.MemberId = cursor.getString(index.memberIdIndex);
+
+        } else {
+
+            //cursorとdbを閉じてエラーメッセージ
+            cursor.close();
+            db.close();
+        }
+
+        //行を読み込む
+        item.LastName = cursor.getString(index.lastNameIndex);
+        item.FirstName = cursor.getString(index.firstNameIndex);
+        item.Address = cursor.getString(index.addressIndex);
+        item.Password = cursor.getString(index.passwordIndex);
+        item.MemberId = cursor.getString(index.memberIdIndex);
+
+        //各EditObjectの取得
+        EditText lastNameEdit = (EditText)findViewById(R.id.edit_lastName);
+        EditText firstNameEdit = (EditText)findViewById(R.id.edit_firstName);
+        EditText addressEdit = (EditText)findViewById(R.id.edit_address);
+        RadioGroup rg = (RadioGroup)findViewById(R.id.radio_gender);
+        EditText passwordEdit = (EditText)findViewById(R.id.edit_password);
+
+        //item.LastNameに値が入っているかの確認
+        Log.d("MemberChange", "LastName = "+ item.LastName );
+
+        //EditTextにDBから取得した値を入れる
+        lastNameEdit.setText(item.LastName);
+        firstNameEdit.setText(item.FirstName);
+        addressEdit.setText(item.Address);
+        passwordEdit.setText(item.Password);
+
+        //cursorとdbを閉じる
+        cursor.close();
+        db.close();
+
+    }
+
 
     public void onClick(View v){
+
+        //button_cancelが押されたらif,button_changeが押されたらelse
         if (v.getId() == R.id.button_cancel){
 
             intent = new Intent(this, MainActivity.class);
@@ -216,38 +221,46 @@ public class MemberChange extends AppCompatActivity implements View.OnClickListe
 
     private String updateMember(MemberItemStr item){
 
-       //SQLiteDatabase取得
-        SQLiteDatabase db = myHelper.getWritableDatabase();
+        //MemberItemIndexクラスを取得
+        MemberItemIndex index = new MemberItemIndex();
 
-        //queryを呼び、検索を行う
-        String where = MyHelper.Columns._ID + "=?";
+       //SQLiteDatabase取得
+        SQLiteDatabase db_u = myHelper.getWritableDatabase();
+
+        //IDを指定
+        item.MemberId = "Hello";
+
+       //queryを呼び、検索を行う
+        String where = MyHelper.Columns.MEMBERID + "=?";
         String [] args = {item.MemberId};
-        Cursor cursor = db.query(
+        Cursor cursor = db_u.query(
                 MyHelper.TABLE_NAME, null, where, args, null, null, null
         );
 
-
-
+        //指定したIDに引っかかったらif,引っかからなかったらelse
         if(cursor.moveToFirst()){
-            cursor.close();
-            db.close();
-            err_msg += "ログインしていません";
-            return err_msg;
-        } else {
+
             //列のindex(位置)を取得する
-            lastNameIndex = cursor.getColumnIndex(MyHelper.Columns.LASTNAME);
-            firstNameIndex = cursor.getColumnIndex(MyHelper.Columns.FIRSTNAME);
-            addressIndex = cursor.getColumnIndex(MyHelper.Columns.ADDRESS);
-            genderIndex = cursor.getColumnIndex(MyHelper.Columns.GENDER);
-            passwordIndex = cursor.getColumnIndex(MyHelper.Columns.PASSWORD);
-            memberIdIndex = cursor.getColumnIndex(MyHelper.Columns.MEMBERID);
+            index.lastNameIndex = cursor.getColumnIndex(MyHelper.Columns.LASTNAME);
+            index.firstNameIndex = cursor.getColumnIndex(MyHelper.Columns.FIRSTNAME);
+            index.addressIndex = cursor.getColumnIndex(MyHelper.Columns.ADDRESS);
+            index.genderIndex = cursor.getColumnIndex(MyHelper.Columns.GENDER);
+            index.passwordIndex = cursor.getColumnIndex(MyHelper.Columns.PASSWORD);
+            index.memberIdIndex = cursor.getColumnIndex(MyHelper.Columns.MEMBERID);
 
-            item.MemberId = cursor.getString(memberIdIndex);
+            item.MemberId = cursor.getString(index.memberIdIndex);
+
+            ret_msg += "変更しました";
+            Log.d("Login", "ret_msg = " + ret_msg);
+
+        } else {
+
+            //cursorとdbを閉じてエラーメッセージ
             cursor.close();
-            db.close();
+            db_u.close();
+            err_msg += "ログイン情報がありませんでした";
+            Log.d("Login", "err_msg = " + err_msg);
         }
-
-
 
         //更新する値をセット
         ContentValues values = new ContentValues();
@@ -259,9 +272,8 @@ public class MemberChange extends AppCompatActivity implements View.OnClickListe
         values.put(MyHelper.Columns.PASSWORD, item.Password);
 
 
-
         //更新する行をWHEREで指定
-        int count = db.update(MyHelper.TABLE_NAME, values, where, args);
+        int count = db_u.update(MyHelper.TABLE_NAME, values, where, args);
 
         //Update出来なかったらLog
         if (count == 0){
@@ -269,8 +281,8 @@ public class MemberChange extends AppCompatActivity implements View.OnClickListe
         }
 
         //データベースを閉じる
-        db.close();
+        db_u.close();
 
-        return err_msg;
+        return ret_msg;
     }
 }

@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -52,9 +53,9 @@ public class MemberRegistration extends AppCompatActivity implements View.OnClic
         String FirstName;
         String Address;
         String Gender;
-        String Year;
-        String Month;
-        String Day;
+        int Year;
+        int Month;
+        int Day;
         String Password;
 
     }
@@ -99,7 +100,12 @@ public class MemberRegistration extends AppCompatActivity implements View.OnClic
             int id = rg.getCheckedRadioButtonId();
             RadioButton radioButton = (RadioButton)findViewById(id);
             item.Gender = radioButton.getText().toString();
-            Log.d("RadioButton", "msg = " + item.Gender);
+
+            DatePicker birthday = (DatePicker) findViewById(R.id.dp_birthday);
+            item.Year = birthday.getYear();
+            item.Month = birthday.getMonth();
+            item.Day = birthday.getDayOfMonth();
+
 
             EditText edit_password = (EditText)findViewById(R.id.edit_password);
             item.Password = edit_password.getText().toString();
@@ -160,22 +166,22 @@ public class MemberRegistration extends AppCompatActivity implements View.OnClic
 
     private String insertMember(MemberItemStr item){
 
-        SQLiteDatabase db_q = myHelper.getWritableDatabase();
+        SQLiteDatabase db_i = myHelper.getWritableDatabase();
 
         String where = MyHelper.Columns.MEMBERID + "=?";
         String [] args = {item.MemberId};
-        Cursor cursor = db_q.query(
+        Cursor cursor = db_i.query(
                 MyHelper.TABLE_NAME, null, where, args, null, null, null
         );
 
         if(cursor.moveToFirst()){
             cursor.close();
-            db_q.close();
+            db_i.close();
             err_msg += "その会員IDはすでに存在しています";
             return err_msg;
         } else {
             cursor.close();
-            db_q.close();
+            db_i.close();
         }
 
         SQLiteDatabase db = myHelper.getWritableDatabase();
