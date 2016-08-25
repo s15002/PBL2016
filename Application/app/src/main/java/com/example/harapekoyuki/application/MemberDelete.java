@@ -1,6 +1,8 @@
 package com.example.harapekoyuki.application;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,8 +10,12 @@ import android.widget.Button;
 
 public class MemberDelete extends AppCompatActivity implements View.OnClickListener{
 
+    private MyHelper myHelper;
+
     private Button button_cancel;
     private Button button_delete;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +37,20 @@ public class MemberDelete extends AppCompatActivity implements View.OnClickListe
             intent = new Intent(this, MainActivity.class);
             startActivityForResult(intent, 0);
         } else if (v.getId() == R.id.button_delete){
+
+
+
             intent = new  Intent(this, MainActivity.class);
             startActivityForResult(intent, 1);
         }
+    }
+
+    //会員削除クラス
+    private void memberDelete(){
+
+        //SQLiteDatabaseオブジェクトを取得
+        SQLiteDatabase db_dl = myHelper.getWritableDatabase();
+
 
     }
 }
